@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Flash Card</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ff4081;
+      animation: pop 1s ease-out;
+    }
+
+    @keyframes pop {
+      0% {transform: scale(0.5);}
+      100% {transform: scale(1);}
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      opacity: 0.8;
+      animation: fall 5s infinite;
+    }
+
+    @keyframes fall {
+      0% {transform: translateY(-10px);}
+      100% {transform: translateY(100vh);}
+    }
+
+    .message {
+      display: none;
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #333;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    button:hover {
+      background-color: #e73370;
+    }
+
+    img {
+      width: 200px;
+      margin-top: 20px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Happy Birthday akhashuuu! 🎂</h1>
+
+  <div id="confetti-container"></div>
+
+  <button onclick="openCard()">Open Your Card</button>
+
+  <div class="message" id="bday-message">
+    🎁 Wishing you a day filled with love, laughter, and cake! 🍰<br>
+    Have the best birthday ever! 💖<br>
+
+  </div>
+
+  <!-- Birthday Song (auto plays when card opens) -->
+  <audio id="bday-audio" preload="auto">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Confetti generator
+    for (let i = 0; i < 100; i++) {
+      let confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor = 
+        `hsl(${Math.random() * 360}, 100%, 70%)`;
+      confetti.style.animationDuration = 3 + Math.random() * 3 + "s";
+      document.getElementById("confetti-container").appendChild(confetti);
+    }
+
+    function openCard() {
+      document.getElementById("bday-message").style.display = "block";
+      document.getElementById("bday-audio").play();
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
